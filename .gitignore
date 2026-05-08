@@ -7,3 +7,5 @@ npm-debug.log*
 .ddev/db_snapshots
 backend/wp-content/uploads
 backend/wp-content/cache
+AGENTS.md
+CLAUDE.md

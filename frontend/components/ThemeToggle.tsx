@@ -10,8 +10,8 @@ export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getButtonClass = () => {

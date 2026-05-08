@@ -14,8 +14,8 @@ export default function Navbar() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isActive = (href: string) => {
@@ -25,7 +25,6 @@ export default function Navbar() {
   const getLinkClass = (href: string) => {
     const active = isActive(href);
     
-    // Înainte de hidratare, folosim clase neutre pentru a evita mismatchul
     if (!isMounted) {
       return baseClass;
     }

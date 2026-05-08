@@ -1,0 +1,9 @@
+node_modules
+.next
+npm-debug.log*
+.env
+.env.local
+.DS_Store
+.ddev/db_snapshots
+backend/wp-content/uploads
+backend/wp-content/cache

@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-const baseClass = "border px-4 py-2 rounded-lg transition cursor-pointer";
+const baseClass = "px-4 py-2 rounded-lg font-semibold transition cursor-pointer";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -26,14 +26,10 @@ export default function Navbar() {
     const active = isActive(href);
     
     if (!isMounted) {
-      return baseClass;
+      return `${baseClass} bg-white text-[#0a2279] border border-[#0a2279]`;
     }
     
-    if (active) {
-      return `${baseClass} ${theme === "dark" ? "bg-white text-black" : "bg-black text-white"}`;
-    }
-    
-    return `${baseClass} ${theme === "dark" ? "hover:bg-gray-700 hover:text-white" : "hover:bg-gray-200 hover:text-black"}`;
+    return `${baseClass} bg-white text-[#0a2279] border border-[#0a2279] hover:bg-blue-50`;
   };
 
   return (

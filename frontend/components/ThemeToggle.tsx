@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const baseClass = "border px-4 py-2 rounded-lg cursor-pointer transition";
+const baseClass = "px-4 py-2 rounded-lg font-semibold cursor-pointer transition";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -16,9 +16,9 @@ export default function ThemeToggle() {
 
   const getButtonClass = () => {
     if (!isMounted) {
-      return baseClass;
+      return `${baseClass} bg-white text-[#0a2279] border border-[#0a2279]`;
     }
-    return `${baseClass} ${theme === "dark" ? "hover:bg-gray-700 hover:text-white" : "hover:bg-gray-200 hover:text-black"}`;
+    return `${baseClass} bg-white text-[#0a2279] border border-[#0a2279] hover:bg-blue-50`;
   };
 
   return (

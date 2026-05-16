@@ -129,145 +129,28 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <section className={`py-20 ${bgPrimary}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image */}
-            <div>
+            <div className="aspect-square rounded-2xl shadow-lg overflow-hidden">
               <img
-                src="https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-agency-25.png"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
                 alt="Contactează-ne"
-                className="rounded-2xl shadow-lg w-full"
+                className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Form */}
-            <div>
-              <h2 className={`text-4xl font-bold mb-6 ${textColor}`}>
-                Trimite-ne un Mesaj
-              </h2>
-              <p className={`text-lg mb-8 ${descColor}`}>
-                Completează formularul de mai jos și echipa noastră va reveni la tine cât mai curând posibil.
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name */}
-                <div>
-                  <label className={`block text-sm font-semibold mb-2 ${textColor}`}>
-                    Nume Complet
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className={`w-full px-4 py-3 rounded-lg border ${inputBg} ${inputText} focus:outline-none focus:ring-2 focus:ring-[#0a2279]`}
-                    placeholder="Exemplu: Ion Popescu"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className={`block text-sm font-semibold mb-2 ${textColor}`}>
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className={`w-full px-4 py-3 rounded-lg border ${inputBg} ${inputText} focus:outline-none focus:ring-2 focus:ring-[#0a2279]`}
-                    placeholder="exemplu@email.com"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label className={`block text-sm font-semibold mb-2 ${textColor}`}>
-                    Telefon (Opțional)
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${inputBg} ${inputText} focus:outline-none focus:ring-2 focus:ring-[#0a2279]`}
-                    placeholder="+40 (XXX) XXX-XXX"
-                  />
-                </div>
-
-                {/* Subject */}
-                <div>
-                  <label className={`block text-sm font-semibold mb-2 ${textColor}`}>
-                    Subiect
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className={`w-full px-4 py-3 rounded-lg border ${inputBg} ${inputText} focus:outline-none focus:ring-2 focus:ring-[#0a2279]`}
-                    placeholder="Exemplu: Ofertă pentru Contabilitate"
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className={`block text-sm font-semibold mb-2 ${textColor}`}>
-                    Mesaj
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className={`w-full px-4 py-3 rounded-lg border ${inputBg} ${inputText} focus:outline-none focus:ring-2 focus:ring-[#0a2279] resize-none`}
-                    placeholder="Scrie-ți mesajul aici..."
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-[#0a2279] text-white py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors"
-                >
-                  Trimite Mesaj
-                </button>
-              </form>
+            {/* Google Maps */}
+            <div className="aspect-square rounded-2xl shadow-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2843.8566577647546!2d25.5413!3d44.9483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201e6e4e4e4e5%3A0x1234567890!2sStr.%20Cezar%20Bolliac%2027%2C%20Ploiesti%2C%20Prahova!5e0!3m2!1sro!2sro!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Media Section */}
-      <section className={`py-20 ${bgSecondary}`}>
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <h2 className={`text-4xl font-bold mb-6 ${textColor}`}>
-            Urmărește-ne pe Rețelele Sociale
-          </h2>
-          <p className={`text-lg mb-12 ${descColor}`}>
-            Rămâi conectat cu noi și primește ultimele actualizări și sfaturi de contabilitate.
-          </p>
-
-          <div className="flex justify-center gap-6">
-            {[
-              { name: 'Facebook', icon: 'f', link: 'https://facebook.com' },
-              { name: 'LinkedIn', icon: 'in', link: 'https://linkedin.com' },
-              { name: 'Instagram', icon: 'ig', link: 'https://instagram.com' },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white bg-[#0a2279] hover:bg-blue-900 transition-colors`}
-                title={social.name}
-              >
-                {social.icon}
-              </a>
-            ))}
           </div>
         </div>
       </section>

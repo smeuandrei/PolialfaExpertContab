@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -22,6 +23,10 @@ export default function Navbar() {
     return isMounted && pathname === href;
   };
 
+  const isDark = theme === 'dark';
+  const navBg = isDark ? 'bg-gray-800' : 'bg-white';
+  const navBorder = isDark ? 'border-gray-700' : 'border-gray-200';
+
   const getLinkClass = (href: string) => {
     const active = isActive(href);
     
@@ -33,10 +38,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between p-6 border-b">
-      <h2 className="text-2xl font-bold">
-        Polialfa Expert Contab
-      </h2>
+    <nav className={`flex items-center justify-between p-6 border-b theme-transition ${navBg} ${navBorder}`}>
+      <Link href="/" className="flex items-center">
+        <div className="relative w-40 h-12 rounded-lg overflow-hidden transition-all duration-300 flex-shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Polialfa Expert Contab"
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 80px, 80px"
+            priority
+          />
+        </div>
+      </Link>
 
       <div className="flex items-center gap-4">
         <Link href="/" className={getLinkClass("/")}> Acasă</Link>

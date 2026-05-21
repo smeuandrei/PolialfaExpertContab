@@ -11,12 +11,17 @@ export default function TarifePage() {
   return (
     <>
       {/* Header Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a2279] via-[#0d2d8a] to-[#1a4494] py-20">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-400/5 blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">
             {tarifePageContent.heading}
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-white/80">
             {tarifePageContent.subtitle}
           </p>
         </div>

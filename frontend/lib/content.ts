@@ -95,7 +95,7 @@ export const testimonialsItems = [
     image:
       'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-agency-02.png',
     quote:
-      'Expertise-ul și abordarea orientată pe date au permis optimizarea strategiei noastre fiscale. Foarte recomandat!',
+      'Expertise-ul și abordarea orientată pe date au permis optimizarea strategiei noastre fiscale. Recomand Polialfa Expert Contab!',
     name: 'Alexandru Petrescu',
     role: 'CEO, Birou de Consulting Internațional',
     rating: 5,

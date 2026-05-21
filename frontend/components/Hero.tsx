@@ -3,6 +3,7 @@ import Link from "next/link";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import { heroContent, heroStats } from "@/lib/content";
+import heroPersonImage from "../public/person-hero-2.png";
 
 export default function Hero() {
   return (
@@ -46,11 +47,12 @@ export default function Hero() {
             {/* Right column - Person image */}
             <div className="hidden md:flex justify-center">
               <Image
-                src="/person-hero-2.png"
+                src={heroPersonImage}
                 alt="Professional"
                 width={400}
                 height={500}
                 className="max-w-full h-auto drop-shadow-2xl"
+                priority
               />
             </div>
           </div>

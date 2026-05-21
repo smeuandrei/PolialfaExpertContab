@@ -15,6 +15,10 @@
   animation: page-enter 0.18s ease-out;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 @layer base {
   body {
     background-color: #ffffff;

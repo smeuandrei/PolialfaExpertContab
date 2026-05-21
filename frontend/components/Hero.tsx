@@ -96,11 +96,6 @@ export default function Hero() {
                 {heroContent.cta.primaryButton}
               </button>
             </Link>
-            <Link href="/tarife">
-              <button className="bg-transparent text-white border border-white/40 px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                {heroContent.cta.secondaryButton}
-              </button>
-            </Link>
           </div>
         </div>
       </section>

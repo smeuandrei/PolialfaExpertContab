@@ -1,31 +1,18 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { testimonialsContent, testimonialsItems } from '@/lib/content';
 
+const renderStars = (rating: number) => '⭐'.repeat(rating);
+
 export default function Testimonials() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const subtextColor = isDark ? 'text-gray-400' : 'text-gray-600';
-  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
-  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-  const borderColor = isDark ? 'border-gray-700' : 'border-gray-200';
-
-  const renderStars = (rating: number) => {
-    return '⭐'.repeat(rating);
-  };
-
   return (
-    <section className={`py-20 ${bgPrimary}`}>
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${textColor}`}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             {testimonialsContent.heading}
           </h2>
-          <p className={`text-lg max-w-2xl mx-auto ${subtextColor}`}>
+          <p className="text-lg max-w-2xl mx-auto text-gray-600">
             {testimonialsContent.subtitle}
           </p>
         </div>
@@ -35,7 +22,7 @@ export default function Testimonials() {
           {testimonialsItems.map((testimonial) => (
             <div
               key={testimonial.id}
-              className={`relative p-8 rounded-2xl border hover:shadow-xl ${cardBg} ${borderColor} shadow-lg`}
+              className="relative p-8 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl bg-white"
             >
               {/* Quote Icon */}
               <div className="text-[#0a2279] text-4xl mb-4 opacity-20">
@@ -48,12 +35,12 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className={`mb-6 leading-relaxed italic ${subtextColor}`}>
+              <p className="mb-6 leading-relaxed italic text-gray-600">
                 {testimonial.quote}
               </p>
 
               {/* Divider */}
-              <div className={`h-px mb-6 ${borderColor}`}></div>
+              <div className="h-px mb-6 bg-gray-200"></div>
 
               {/* Author Info */}
               <div className="flex items-center gap-4">
@@ -63,10 +50,10 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full object-cover border-2 border-[#0a2279]"
                 />
                 <div>
-                  <p className={`font-bold ${textColor}`}>
+                  <p className="font-bold text-gray-900">
                     {testimonial.name}
                   </p>
-                  <p className={`text-xs ${subtextColor}`}>
+                  <p className="text-xs text-gray-600">
                     {testimonial.role}
                   </p>
                 </div>

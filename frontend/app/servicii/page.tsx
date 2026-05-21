@@ -1,40 +1,29 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { serviciiPageContent, serviciiItems } from '@/lib/content';
 
 export default function ServiciiPage() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
-  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
-  const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
-  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-
   return (
     <>
       {/* Header Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             {serviciiPageContent.heading}
           </h1>
-          <p className={`text-lg ${descColor}`}>
+          <p className="text-lg text-gray-600">
             {serviciiPageContent.subtitle}
           </p>
         </div>
       </section>
 
       {/* Main Services Grid */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {serviciiItems.map((service) => (
-              <div 
-                key={service.id} 
-                className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ${cardBg}`}
+              <div
+                key={service.id}
+                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white"
               >
                 {/* Image */}
                 <div className="h-64 md:h-72 overflow-hidden">
@@ -47,10 +36,10 @@ export default function ServiciiPage() {
 
                 {/* Content */}
                 <div className="p-8">
-                  <h3 className={`text-2xl font-bold mb-4 ${textColor}`}>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900">
                     {service.title}
                   </h3>
-                  <p className={`mb-6 leading-relaxed ${descColor}`}>
+                  <p className="mb-6 leading-relaxed text-gray-600">
                     {service.description}
                   </p>
                   <Link href="/contact">
@@ -66,7 +55,7 @@ export default function ServiciiPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -80,10 +69,10 @@ export default function ServiciiPage() {
 
             {/* Content */}
             <div>
-              <h2 className={`text-4xl font-bold mb-6 ${textColor}`}>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">
                 {serviciiPageContent.whyHeading}
               </h2>
-              <ul className={`space-y-4 text-lg ${descColor}`}>
+              <ul className="space-y-4 text-lg text-gray-600">
                 {serviciiPageContent.whyItems.map((item, index) => (
                   <li key={index} className="flex items-start">
                     <span className="text-[#0a2279] font-bold mr-4">✓</span>
@@ -97,13 +86,13 @@ export default function ServiciiPage() {
       </section>
 
       {/* Process Section */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {serviciiPageContent.processHeading}
             </h2>
-            <p className={`text-lg ${descColor}`}>
+            <p className="text-lg text-gray-600">
               {serviciiPageContent.processSubtitle}
             </p>
           </div>
@@ -111,13 +100,13 @@ export default function ServiciiPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {serviciiPageContent.processSteps.map((item, index) => (
               <div key={index} className="text-center">
-                <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-2xl ${isDark ? 'bg-[#0a2279] text-white' : 'bg-[#0a2279] text-white'}`}>
+                <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-2xl bg-[#0a2279] text-white">
                   {item.step}
                 </div>
-                <h3 className={`text-xl font-bold mb-2 ${textColor}`}>
+                <h3 className="text-xl font-bold mb-2 text-gray-900">
                   {item.title}
                 </h3>
-                <p className={descColor}>
+                <p className="text-gray-600">
                   {item.desc}
                 </p>
               </div>

@@ -1,16 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import { heroContent, heroStats } from "@/lib/content";
 
 export default function Hero() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
   return (
     <>
       {/* Hero Section */}
@@ -64,15 +58,15 @@ export default function Hero() {
       </section>
 
       {/* Stats Section */}
-      <section className={`py-16 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}>
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {heroStats.map((stat, index) => (
               <div key={index} className="text-center">
-                <p className={`text-4xl font-bold mb-2 ${isDark ? "text-white" : "text-[#0a2279]"}`}>
+                <p className="text-4xl font-bold mb-2 text-[#0a2279]">
                   {stat.value}
                 </p>
-                <p className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                <p className="text-sm font-medium text-gray-600">
                   {stat.label}
                 </p>
               </div>

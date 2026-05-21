@@ -1,24 +1,15 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import { servicesWidgetContent, servicesWidgetItems } from '@/lib/content';
 
 export default function Services() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const bgClass = isDark ? 'bg-gray-900' : 'bg-white';
-  const textClass = isDark ? 'text-white' : 'text-gray-900';
-  const descriptionClass = isDark ? 'text-gray-300' : 'text-gray-600';
-
   return (
-    <section className={`py-20 ${bgClass}`}>
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${textClass}`}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             {servicesWidgetContent.heading}
           </h2>
-          <p className={`text-lg ${descriptionClass}`}>
+          <p className="text-lg text-gray-600">
             {servicesWidgetContent.subtitle}
           </p>
         </div>
@@ -28,11 +19,7 @@ export default function Services() {
           {servicesWidgetItems.map((service) => (
             <div
               key={service.id}
-              className={`p-8 rounded-lg text-center transition-all duration-300 ${
-                isDark
-                  ? 'bg-gray-800 hover:bg-gray-700'
-                  : 'bg-white hover:shadow-lg'
-              }`}
+              className="p-8 rounded-lg text-center bg-white hover:shadow-lg transition-shadow duration-300"
             >
               {/* Icon */}
               <div className="flex justify-center mb-6">
@@ -44,12 +31,12 @@ export default function Services() {
               </div>
 
               {/* Title */}
-              <h3 className={`text-xl font-bold mb-4 ${textClass}`}>
+              <h3 className="text-xl font-bold mb-4 text-gray-900">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className={descriptionClass}>
+              <p className="text-gray-600">
                 {service.description}
               </p>
             </div>

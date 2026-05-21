@@ -1,6 +1,3 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import {
   despreNoiContent,
@@ -10,30 +7,22 @@ import {
 } from '@/lib/content';
 
 export default function DespreNoiPage() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
-  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
-  const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
-  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-
   return (
     <>
       {/* Header Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             {despreNoiContent.heading}
           </h1>
-          <p className={`text-lg md:text-xl max-w-3xl ${descColor}`}>
+          <p className="text-lg md:text-xl max-w-3xl text-gray-600">
             {despreNoiContent.subtitle}
           </p>
         </div>
       </section>
 
       {/* Our Story Section */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -47,13 +36,13 @@ export default function DespreNoiPage() {
 
             {/* Content */}
             <div>
-              <h2 className={`text-4xl font-bold mb-6 ${textColor}`}>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">
                 {despreNoiContent.storyHeading}
               </h2>
-              <p className={`text-lg mb-4 leading-relaxed ${descColor}`}>
+              <p className="text-lg mb-4 leading-relaxed text-gray-600">
                 {despreNoiContent.storyParagraph1}
               </p>
-              <p className={`text-lg leading-relaxed ${descColor}`}>
+              <p className="text-lg leading-relaxed text-gray-600">
                 {despreNoiContent.storyParagraph2}
               </p>
               <Link href="/contact" className="inline-block mt-6">
@@ -67,13 +56,13 @@ export default function DespreNoiPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {despreNoiContent.valuesHeading}
             </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${descColor}`}>
+            <p className="text-lg max-w-2xl mx-auto text-gray-600">
               {despreNoiContent.valuesSubtitle}
             </p>
           </div>
@@ -82,17 +71,17 @@ export default function DespreNoiPage() {
             {valuesItems.map((value) => (
               <div
                 key={value.id}
-                className={`p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-shadow ${cardBg}`}
+                className="p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-shadow bg-white"
               >
                 <img
                   src={value.icon}
                   alt={value.title}
                   className="h-16 w-16 mx-auto mb-6"
                 />
-                <h3 className={`text-2xl font-bold mb-4 ${textColor}`}>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
                   {value.title}
                 </h3>
-                <p className={descColor}>
+                <p className="text-gray-600">
                   {value.description}
                 </p>
               </div>
@@ -102,13 +91,13 @@ export default function DespreNoiPage() {
       </section>
 
       {/* Team Section */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {despreNoiContent.teamHeading}
             </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${descColor}`}>
+            <p className="text-lg max-w-2xl mx-auto text-gray-600">
               {despreNoiContent.teamSubtitle}
             </p>
           </div>
@@ -117,9 +106,8 @@ export default function DespreNoiPage() {
             {teamItems.map((member) => (
               <div
                 key={member.id}
-                className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${cardBg}`}
+                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white"
               >
-                {/* Image */}
                 <div className="h-64 overflow-hidden">
                   <img
                     src={member.image}
@@ -127,16 +115,14 @@ export default function DespreNoiPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Content */}
                 <div className="p-6">
-                  <h3 className={`text-xl font-bold mb-1 ${textColor}`}>
+                  <h3 className="text-xl font-bold mb-1 text-gray-900">
                     {member.name}
                   </h3>
                   <p className="text-sm font-semibold text-[#0a2279] mb-2">
                     {member.role}
                   </p>
-                  <p className={`text-sm ${descColor}`}>
+                  <p className="text-sm text-gray-600">
                     {member.expertise}
                   </p>
                 </div>
@@ -147,13 +133,13 @@ export default function DespreNoiPage() {
       </section>
 
       {/* Certifications Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {despreNoiContent.certificationsHeading}
             </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${descColor}`}>
+            <p className="text-lg max-w-2xl mx-auto text-gray-600">
               {despreNoiContent.certificationsSubtitle}
             </p>
           </div>
@@ -162,17 +148,17 @@ export default function DespreNoiPage() {
             {certificationsItems.map((cert) => (
               <div
                 key={cert.id}
-                className={`p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-shadow ${cardBg}`}
+                className="p-8 rounded-2xl text-center shadow-lg hover:shadow-xl transition-shadow bg-white"
               >
                 <img
                   src={cert.icon}
                   alt={cert.title}
                   className="h-16 w-16 mx-auto mb-6"
                 />
-                <h3 className={`text-xl font-bold mb-4 ${textColor}`}>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
                   {cert.title}
                 </h3>
-                <p className={descColor}>
+                <p className="text-gray-600">
                   {cert.description}
                 </p>
               </div>

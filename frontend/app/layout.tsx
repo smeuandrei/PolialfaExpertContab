@@ -1,7 +1,5 @@
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/ThemeProvider";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
@@ -12,21 +10,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro" suppressHydrationWarning>
+    <html lang="ro">
       <body>
-        <ThemeProvider>
-          <main className="min-h-screen flex flex-col">
-            <Navbar />
+        <main className="min-h-screen flex flex-col">
+          <Navbar />
 
-            <div className="flex-1">
-              <PageTransition>
-                {children}
-              </PageTransition>
-            </div>
+          <div className="flex-1">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </div>
 
-            <Footer />
-          </main>
-        </ThemeProvider>
+          <Footer />
+        </main>
       </body>
     </html>
   );

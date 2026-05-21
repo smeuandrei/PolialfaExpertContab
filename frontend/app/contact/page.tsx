@@ -1,54 +1,42 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import { contactPageContent, contactMethods } from '@/lib/content';
 
 export default function ContactPage() {
-  const { theme } = useTheme();
-
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
-  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
-  const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
-  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-
   return (
     <>
       {/* Header Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             {contactPageContent.heading}
           </h1>
-          <p className={`text-lg ${descColor}`}>
+          <p className="text-lg text-gray-600">
             {contactPageContent.subtitle}
           </p>
         </div>
       </section>
 
       {/* Contact Methods */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactMethods.map((method) => (
               <div
                 key={method.id}
-                className={`rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow ${cardBg}`}
+                className="rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow bg-white"
               >
                 <img
                   src={method.icon}
                   alt={method.title}
                   className="h-16 w-16 mx-auto mb-6"
                 />
-                <h3 className={`text-2xl font-bold mb-3 ${textColor}`}>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">
                   {method.title}
                 </h3>
-                <p className={`text-lg font-semibold mb-2 ${textColor}`}>
+                <p className="text-lg font-semibold mb-2 text-gray-900">
                   {method.value}
                 </p>
                 {method.subtitle && (
-                  <p className={`text-sm ${descColor}`}>
+                  <p className="text-sm text-gray-600">
                     {method.subtitle}
                   </p>
                 )}
@@ -58,8 +46,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      {/* Map Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image */}

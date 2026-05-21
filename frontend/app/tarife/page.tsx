@@ -1,6 +1,3 @@
-'use client';
-
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import {
   tarifePageContent,
@@ -11,36 +8,28 @@ import {
 } from '@/lib/content';
 
 export default function TarifePage() {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
-  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
-  const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
-  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-
   return (
     <>
       {/* Header Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             {tarifePageContent.heading}
           </h1>
-          <p className={`text-lg ${descColor}`}>
+          <p className="text-lg text-gray-600">
             {tarifePageContent.subtitle}
           </p>
         </div>
       </section>
 
       {/* Pricing Plans Grid */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {tarifePageContent.plansHeading}
             </h2>
-            <p className={`text-lg ${descColor}`}>
+            <p className="text-lg text-gray-600">
               {tarifePageContent.plansSubtitle}
             </p>
           </div>
@@ -49,27 +38,27 @@ export default function TarifePage() {
             {pricingPlans.map((plan) => (
               <div
                 key={plan.id}
-                className={`rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 ${cardBg} flex flex-col`}
+                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 bg-white flex flex-col"
               >
                 {/* Header */}
                 <div className="p-8">
-                  <h3 className={`text-2xl font-bold mb-2 ${textColor}`}>
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
                     {plan.name}
                   </h3>
-                  <p className={`text-sm mb-4 ${descColor}`}>
+                  <p className="text-sm mb-4 text-gray-600">
                     {plan.description}
                   </p>
                 </div>
 
                 {/* Pricing Info */}
-                <div className={`px-8 py-4 ${isDark ? 'bg-gray-700' : 'bg-gray-100'}`}>
+                <div className="px-8 py-4 bg-gray-100">
                   <div className="mb-2">
-                    <p className={`text-sm font-semibold ${descColor}`}>Documente:</p>
-                    <p className={`text-lg font-bold ${textColor}`}>{plan.documents}</p>
+                    <p className="text-sm font-semibold text-gray-600">Documente:</p>
+                    <p className="text-lg font-bold text-gray-900">{plan.documents}</p>
                   </div>
                   <div>
-                    <p className={`text-sm font-semibold ${descColor}`}>Angajați:</p>
-                    <p className={`text-lg font-bold ${textColor}`}>{plan.employees}</p>
+                    <p className="text-sm font-semibold text-gray-600">Angajați:</p>
+                    <p className="text-lg font-bold text-gray-900">{plan.employees}</p>
                   </div>
                 </div>
 
@@ -79,7 +68,7 @@ export default function TarifePage() {
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
                         <span className="text-[#0a2279] font-bold mr-3">✓</span>
-                        <span className={descColor}>{feature}</span>
+                        <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -88,9 +77,9 @@ export default function TarifePage() {
                 {/* Price and Button */}
                 <div className="p-8 pt-0 flex flex-col">
                   <div className="mb-4 text-center">
-                    <p className={`text-sm font-semibold ${descColor}`}>Preț:</p>
-                    <p className={`text-3xl font-bold ${textColor}`}>{plan.price}</p>
-                    <p className={`text-sm ${descColor}`}>{plan.billing}</p>
+                    <p className="text-sm font-semibold text-gray-600">Preț:</p>
+                    <p className="text-3xl font-bold text-gray-900">{plan.price}</p>
+                    <p className="text-sm text-gray-600">{plan.billing}</p>
                   </div>
                   <Link href="/contact" className="mt-auto">
                     <button className="w-full bg-white text-[#0a2279] border border-[#0a2279] py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
@@ -105,14 +94,14 @@ export default function TarifePage() {
       </section>
 
       {/* Custom Plan Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
-          <div className={`rounded-2xl p-12 border-2 border-[#0a2279] ${isDark ? 'bg-gray-800' : 'bg-blue-50'}`}>
+          <div className="rounded-2xl p-12 border-2 border-[#0a2279] bg-blue-50">
             <div className="text-center mb-8">
-              <h2 className={`text-3xl font-bold mb-4 ${textColor}`}>
+              <h2 className="text-3xl font-bold mb-4 text-gray-900">
                 🎯 {customPlan.name}
               </h2>
-              <p className={`text-lg ${descColor}`}>
+              <p className="text-lg text-gray-600">
                 {customPlan.description}
               </p>
             </div>
@@ -121,7 +110,7 @@ export default function TarifePage() {
               {customPlan.features.map((feature, index) => (
                 <div key={index} className="flex items-start">
                   <span className="text-[#0a2279] font-bold mr-3 text-xl">✓</span>
-                  <span className={descColor}>{feature}</span>
+                  <span className="text-gray-600">{feature}</span>
                 </div>
               ))}
             </div>
@@ -138,19 +127,19 @@ export default function TarifePage() {
       </section>
 
       {/* What's Included Section */}
-      <section className={`py-20 ${bgSecondary}`}>
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <h2 className={`text-4xl font-bold text-center mb-16 ${textColor}`}>
+          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
             {tarifePageContent.includedHeading}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whatsIncludedItems.map((item, index) => (
-              <div key={index} className={`p-6 rounded-lg ${cardBg}`}>
-                <h3 className={`text-xl font-bold mb-3 ${textColor}`}>
+              <div key={index} className="p-6 rounded-lg bg-white">
+                <h3 className="text-xl font-bold mb-3 text-gray-900">
                   {item.title}
                 </h3>
-                <p className={descColor}>{item.desc}</p>
+                <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -158,19 +147,19 @@ export default function TarifePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className={`py-20 ${bgPrimary}`}>
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
-          <h2 className={`text-4xl font-bold text-center mb-16 ${textColor}`}>
+          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
             {tarifePageContent.faqHeading}
           </h2>
 
           <div className="space-y-6">
             {faqItems.map((item, index) => (
-              <div key={index} className={`p-6 rounded-lg border-l-4 border-[#0a2279] ${cardBg}`}>
-                <h3 className={`text-lg font-bold mb-3 ${textColor}`}>
+              <div key={index} className="p-6 rounded-lg border-l-4 border-[#0a2279] bg-white">
+                <h3 className="text-lg font-bold mb-3 text-gray-900">
                   {item.q}
                 </h3>
-                <p className={descColor}>{item.a}</p>
+                <p className="text-gray-600">{item.a}</p>
               </div>
             ))}
           </div>

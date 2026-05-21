@@ -1,128 +1,23 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-
-interface PricingPlan {
-  id: number;
-  name: string;
-  price: string;
-  billing: string;
-  description: string;
-  documents: string;
-  employees: string;
-  features: string[];
-  highlighted?: boolean;
-}
-
-const pricingPlans: PricingPlan[] = [
-  {
-    id: 1,
-    name: 'Fără Salariați',
-    price: '450',
-    billing: 'lei/lunar',
-    description: 'Ideal pentru PFA și microîntreprinderi fără angajați',
-    documents: 'Până la 20 documente lunar',
-    employees: '0 angajați',
-    features: [
-      'Evidență contabilă completă',
-      'Rapoarte fiscale lunare',
-      'Suport email',
-      'Actualizare legislație',
-      'Accesare online platform',
-    ],
-  },
-  {
-    id: 2,
-    name: 'Un Singur Angajat',
-    price: '500 - 700',
-    billing: 'lei/lunar',
-    description: 'Perfect pentru întreprinderi cu 1 angajat',
-    documents: 'Până la 50 documente lunar',
-    employees: '1 angajat',
-    features: [
-      'Contabilitate completă',
-      'Gestionare salarizare',
-      'Calcul contribuții sociale',
-      'Rapoarte lunare',
-      'Suport telefonic',
-      'Accesare online platform',
-    ],
-  },
-  {
-    id: 3,
-    name: 'Până la 3 Angajați',
-    price: '750 - 1000',
-    billing: 'lei/lunar',
-    description: 'Soluție completă pentru echipe mici',
-    documents: 'Până la 200 documente lunar',
-    employees: '2-3 angajați',
-    features: [
-      'Contabilitate avansată',
-      'Gestionare HR completă',
-      'Salarizare și contribuții',
-      'Rapoarte detaliate',
-      'Suport prioritar',
-      'Consultanță fiscală',
-      'Accesare online platform',
-    ],
-  },
-  {
-    id: 4,
-    name: 'Până la 5 Angajați',
-    price: '1050 - 2000',
-    billing: 'lei/lunar',
-    description: 'Pachet Enterprise pentru companii mai mari',
-    documents: 'Până la 500 documente lunar',
-    employees: '3-5 angajați',
-    features: [
-      'Contabilitate enterprise',
-      'Gestionare HR avansată',
-      'Audit intern periodic',
-      'Rapoarte consolidate',
-      'Account manager dedicat',
-      'Consultanță fiscală strategică',
-      'Planificare financiară',
-      'Accesare online platform',
-    ],
-  },
-];
-
-const customPlan = {
-  id: 5,
-  name: 'Ofertă Personalizată',
-  description: 'Soluție 100% customizată pentru nevoile unice ale afacerii tale',
-  features: [
-    'Pachet personalizat complet',
-    'Integrare cu sistemele existente',
-    'Rapoarte custom',
-    'Account manager dedicat',
-    'Suport 24/7 disponibil',
-    'Consultanță strategică nelimitată',
-  ],
-};
+import {
+  tarifePageContent,
+  pricingPlans,
+  customPlan,
+  whatsIncludedItems,
+  faqItems,
+} from '@/lib/content';
 
 export default function TarifePage() {
   const { theme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
-
   const isDark = theme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-gray-900';
   const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
   const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
   const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
   const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-  const borderColor = isDark ? 'border-gray-700' : 'border-gray-200';
 
   return (
     <>
@@ -130,10 +25,10 @@ export default function TarifePage() {
       <section className={`py-20 ${bgPrimary}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
-            Tarife
+            {tarifePageContent.heading}
           </h1>
           <p className={`text-lg ${descColor}`}>
-            Pachete flexible și transparent pentru toate dimensiunile de afaceri
+            {tarifePageContent.subtitle}
           </p>
         </div>
       </section>
@@ -143,10 +38,10 @@ export default function TarifePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h2 className={`text-4xl font-bold mb-4 ${textColor}`}>
-              Alege Pachetul Potrivit pentru Tine
+              {tarifePageContent.plansHeading}
             </h2>
             <p className={`text-lg ${descColor}`}>
-              Prețuri competitive și servicii de înaltă calitate
+              {tarifePageContent.plansSubtitle}
             </p>
           </div>
 
@@ -199,7 +94,7 @@ export default function TarifePage() {
                   </div>
                   <Link href="/contact" className="mt-auto">
                     <button className="w-full bg-white text-[#0a2279] border border-[#0a2279] py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                      Solicită Ofertă
+                      {tarifePageContent.planButton}
                     </button>
                   </Link>
                 </div>
@@ -234,7 +129,7 @@ export default function TarifePage() {
             <div className="text-center">
               <Link href="/contact">
                 <button className="bg-[#0a2279] text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors">
-                  Obține o Ofertă Personalizată
+                  {tarifePageContent.customPlanButton}
                 </button>
               </Link>
             </div>
@@ -246,36 +141,11 @@ export default function TarifePage() {
       <section className={`py-20 ${bgSecondary}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h2 className={`text-4xl font-bold text-center mb-16 ${textColor}`}>
-            Ce Este Inclus în Toate Pachetele
+            {tarifePageContent.includedHeading}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Suport Profesionist',
-                desc: 'Echipă de contabili și consultanți experimentați',
-              },
-              {
-                title: 'Conformitate Legală',
-                desc: 'Respectarea tuturor reglementărilor fiscale și contabile',
-              },
-              {
-                title: 'Rapoarte Detaliate',
-                desc: 'Rapoarte zilnice, lunare și anuale personalizate',
-              },
-              {
-                title: 'Platformă Online',
-                desc: 'Acces 24/7 la documentele și rapoartele tale',
-              },
-              {
-                title: 'Actualizări Frecvente',
-                desc: 'Informări cu privire la schimbări în legislație',
-              },
-              {
-                title: 'Confidențialitate Garantată',
-                desc: 'Protecția datelor conform GDPR și standardelor industriei',
-              },
-            ].map((item, index) => (
+            {whatsIncludedItems.map((item, index) => (
               <div key={index} className={`p-6 rounded-lg ${cardBg}`}>
                 <h3 className={`text-xl font-bold mb-3 ${textColor}`}>
                   {item.title}
@@ -291,28 +161,11 @@ export default function TarifePage() {
       <section className={`py-20 ${bgPrimary}`}>
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <h2 className={`text-4xl font-bold text-center mb-16 ${textColor}`}>
-            Întrebări Frecvente
+            {tarifePageContent.faqHeading}
           </h2>
 
           <div className="space-y-6">
-            {[
-              {
-                q: 'Pot schimba pachetul oricând?',
-                a: 'Da, poți actualiza sau downgrade-a oricând în funcție de nevoile tale. Nu sunt penalități pentru schimbare.',
-              },
-              {
-                q: 'Ce se întâmplă dacă depășesc limita de documente?',
-                a: 'Documente suplimentare se factorează separat. Te vom notifica proactiv când se apropii de limita lunară.',
-              },
-              {
-                q: 'Cum funcționează onboarding-ul?',
-                a: 'Un specialist dedicat va prelua documentele tale și va configura sistemul. Procesul durează în general 5-10 zile.',
-              },
-              {
-                q: 'Oferiți suport pentru mai mult de 5 salariați?',
-                a: 'Absolut! Contactează-ne pentru o ofertă personalizată adaptată companiei tale.',
-              },
-            ].map((item, index) => (
+            {faqItems.map((item, index) => (
               <div key={index} className={`p-6 rounded-lg border-l-4 border-[#0a2279] ${cardBg}`}>
                 <h3 className={`text-lg font-bold mb-3 ${textColor}`}>
                   {item.q}
@@ -328,14 +181,14 @@ export default function TarifePage() {
       <section className="bg-[#0a2279] py-20">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Gata să transformi contabilitatea companiei tale?
+            {tarifePageContent.cta.heading}
           </h2>
           <p className="text-lg text-white/90 mb-8">
-            Contactează-ne pentru o consultație gratuită și descoperă pachetul perfect pentru afacerea ta.
+            {tarifePageContent.cta.subtitle}
           </p>
           <Link href="/contact">
             <button className="bg-white text-[#0a2279] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Solicită o Consultație Gratuită
+              {tarifePageContent.cta.button}
             </button>
           </Link>
         </div>

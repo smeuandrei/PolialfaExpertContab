@@ -1,92 +1,76 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-
-interface Testimonial {
-  id: number;
-  image: string;
-  quote: string;
-  name: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    image: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-agency-04.png',
-    quote: 'Am lucrat cu această echipă și rezultatele au fost exceptionale. Recomand cu plăcere serviciile lor de contabilitate și consultanță.',
-    name: 'Ion Popescu',
-  },
-  {
-    id: 2,
-    image: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-agency-03.png',
-    quote: 'Profesionalismul și dedicația echipei au transformat modul în care gestionez afacerea. Sunt foarte mulțumit de rezultate.',
-    name: 'Maria Ionescu',
-  },
-  {
-    id: 3,
-    image: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-agency-02.png',
-    quote: 'Expertise-ul și abordarea orientată pe date au permis optimizarea strategiei noastre fiscale. Foarte recomandat!',
-    name: 'Alexandru Petrescu',
-  },
-];
+import Link from 'next/link';
+import { testimonialsContent, testimonialsItems } from '@/lib/content';
 
 export default function Testimonials() {
   const { theme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
-
   const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-white';
+  const textColor = isDark ? 'text-white' : 'text-gray-900';
+  const subtextColor = isDark ? 'text-gray-400' : 'text-gray-600';
+  const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
+  const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
+  const borderColor = isDark ? 'border-gray-700' : 'border-gray-200';
+
+  const renderStars = (rating: number) => {
+    return '⭐'.repeat(rating);
+  };
 
   return (
-    <section
-      className="relative py-32 bg-center bg-cover bg-no-repeat"
-      style={{
-        backgroundImage: 'url(/background-reversed.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className={`py-20 ${bgPrimary}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Section Header - Empty spacer */}
-        <div className="mb-20 h-32" />
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${textColor}`}>
+            {testimonialsContent.heading}
+          </h2>
+          <p className={`text-lg max-w-2xl mx-auto ${subtextColor}`}>
+            {testimonialsContent.subtitle}
+          </p>
+        </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonialsItems.map((testimonial) => (
             <div
               key={testimonial.id}
-              className={`p-6 rounded-lg text-center transition-all duration-300 ${
-                isDark ? 'bg-white/10 backdrop-blur-sm' : 'bg-white/10 backdrop-blur-sm'
-              }`}
+              className={`relative p-8 rounded-2xl border hover:shadow-xl ${cardBg} ${borderColor} shadow-lg`}
             >
-              {/* Circular Image */}
-              <div className="flex justify-center mb-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-white"
-                />
+              {/* Quote Icon */}
+              <div className="text-[#0a2279] text-4xl mb-4 opacity-20">
+                "
+              </div>
+
+              {/* Stars Rating */}
+              <div className="mb-4 text-xl">
+                {renderStars(testimonial.rating)}
               </div>
 
               {/* Quote */}
-              <p className={`mb-4 leading-relaxed italic text-sm ${textColor}`}>
-                &quot;{testimonial.quote}&quot;
+              <p className={`mb-6 leading-relaxed italic ${subtextColor}`}>
+                {testimonial.quote}
               </p>
 
-              {/* Name */}
-              <p className={`font-bold uppercase text-xs ${textColor}`}>
-                {testimonial.name}
-              </p>
+              {/* Divider */}
+              <div className={`h-px mb-6 ${borderColor}`}></div>
+
+              {/* Author Info */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#0a2279]"
+                />
+                <div>
+                  <p className={`font-bold ${textColor}`}>
+                    {testimonial.name}
+                  </p>
+                  <p className={`text-xs ${subtextColor}`}>
+                    {testimonial.role}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

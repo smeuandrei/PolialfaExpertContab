@@ -1,85 +1,17 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-
-interface ContactMethod {
-  id: number;
-  title: string;
-  value: string;
-  subtitle?: string;
-  icon: string;
-}
-
-const contactMethods: ContactMethod[] = [
-  {
-    id: 1,
-    title: 'Sună-ne',
-    value: '+40 (728) 123-456',
-    subtitle: 'Luni – Vineri, 9:00 - 17:00',
-    icon: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-7.png',
-  },
-  {
-    id: 2,
-    title: 'Email',
-    value: 'conta@polialfa.ro',
-    subtitle: 'Răspunsuri în 24 de ore',
-    icon: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-5.png',
-  },
-  {
-    id: 3,
-    title: 'Birou',
-    value: 'Str. Cezar Bolliac nr. 27',
-    subtitle: 'Ploiesti, Prahova',
-    icon: 'https://polialfaexpertcontab-backend.ddev.site/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-6.png',
-  },
-];
+import { contactPageContent, contactMethods } from '@/lib/content';
 
 export default function ContactPage() {
   const { theme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
 
   const isDark = theme === 'dark';
   const textColor = isDark ? 'text-white' : 'text-gray-900';
   const descColor = isDark ? 'text-gray-300' : 'text-gray-600';
   const bgPrimary = isDark ? 'bg-gray-900' : 'bg-white';
   const bgSecondary = isDark ? 'bg-gray-800' : 'bg-gray-50';
-  const inputBg = isDark ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300';
-  const inputText = isDark ? 'text-white' : 'text-gray-900';
   const cardBg = isDark ? 'bg-gray-800' : 'bg-white';
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to a backend
-    alert('Mulțumim pentru mesaj! Vom reveni cu răspunsul în curând.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-  };
 
   return (
     <>
@@ -87,10 +19,10 @@ export default function ContactPage() {
       <section className={`py-20 ${bgPrimary}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <h1 className={`text-5xl md:text-6xl font-bold mb-4 ${textColor}`}>
-            Contactează-ne
+            {contactPageContent.heading}
           </h1>
           <p className={`text-lg ${descColor}`}>
-            Suntem aici pentru a te ajuta. Alege metoda de contact preferată.
+            {contactPageContent.subtitle}
           </p>
         </div>
       </section>
@@ -159,14 +91,14 @@ export default function ContactPage() {
       <section className="bg-[#0a2279] py-20">
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Așteptăm Mesajul Tău
+            {contactPageContent.cta.heading}
           </h2>
           <p className="text-lg text-white/90 mb-8">
-            Indiferent de întrebări sau nevoi, echipa noastră de profesioniști este gata să te ajute. Contactează-ne astazi!
+            {contactPageContent.cta.subtitle}
           </p>
           <a href="#" className="inline-block">
             <button className="bg-white text-[#0a2279] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Apelează Acum
+              {contactPageContent.cta.button}
             </button>
           </a>
         </div>

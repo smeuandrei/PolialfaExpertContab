@@ -7,6 +7,7 @@ npm-debug.log*
 .ddev/db_snapshots
 backend/wp-content/uploads
 backend/wp-content/cache
+backend/wp-content/languages
+backend/wp-config.php
 AGENTS.md
 CLAUDE.md
-backend/wp-content/languages

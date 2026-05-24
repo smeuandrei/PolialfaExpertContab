@@ -95,48 +95,6 @@ export default function DespreNoiPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              {despreNoiContent.teamHeading}
-            </h2>
-            <p className="text-lg max-w-2xl mx-auto text-gray-600">
-              {despreNoiContent.teamSubtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamItems.map((member) => (
-              <div
-                key={member.id}
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white"
-              >
-                <div className="h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1 text-gray-900">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-[#0a2279] mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {member.expertise}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Certifications Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">

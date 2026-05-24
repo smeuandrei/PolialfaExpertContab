@@ -24,16 +24,6 @@ export default function Testimonials() {
               key={testimonial.id}
               className="relative p-8 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl bg-white"
             >
-              {/* Quote Icon */}
-              <div className="text-[#0a2279] text-4xl mb-4 opacity-20">
-                "
-              </div>
-
-              {/* Stars Rating */}
-              <div className="mb-4 text-xl">
-                {renderStars(testimonial.rating)}
-              </div>
-
               {/* Quote */}
               <p className="mb-6 leading-relaxed italic text-gray-600">
                 {testimonial.quote}
